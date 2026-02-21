@@ -1,0 +1,26 @@
+version = 1
+SPDX-PackageName = "IceAndFire ATM Compatibility"
+
+[[annotations]]
+path = ["gradlew**", "gradle/wrapper/**", "gradle.properties"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2015-2021 the original authors."
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = [".editorconfig", ".gitignore", ".vscode/**", "README.md", "eclipse-formatter.xml", "gradle/libs.versions.toml"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 锐冰(SharpIce) <VupRbl@163.com>"
+SPDX-License-Identifier = "0BSD"
+
+[[annotations]]
+path = ["src/test/resources/data/iceandfire/loot_table/entities/dragon/fire_dragon_skeleton.json", "src/test/resources/data/iceandfire/loot_table/entities/dragon/ice_dragon_skeleton.json", "src/test/resources/data/iceandfire/loot_table/entities/dragon/lightning_dragon_skeleton.json", "src/test/resources/data/iceandfire/tags/worldgen/biome/entity_gen/amphithere.json", "src/test/resources/data/iceandfire/tags/worldgen/biome/entity_gen/wandering_cyclops.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "AllTheMods Team (https://github.com/AllTheMods/ATM-10)"
+SPDX-License-Identifier = "LicenseRef-ATM-Proprietary"
+
+[[annotations]]
+path = ["src/main/resources/iaf_atm_compat.mixins.json", "src/main/templates/META-INF/neoforge.mods.toml"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 锐冰(SharpIce) <VupRbl@163.com>"
+SPDX-License-Identifier = "LGPL-3.0-or-later"

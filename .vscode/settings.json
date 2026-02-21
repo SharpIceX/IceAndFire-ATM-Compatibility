@@ -1,0 +1,5 @@
+{
+	"java.compile.nullAnalysis.mode": "disabled",
+	"java.format.settings.profile": "Custom-Style",
+	"java.format.settings.url": "./eclipse-formatter.xml"
+}

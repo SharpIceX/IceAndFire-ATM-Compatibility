@@ -1,0 +1,23 @@
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.219"
+parchment-minecraft = "1.21.1"
+parchment-mappings = "2024.11.17"
+iceandfire-ce = "7524985"
+
+# 运行时依赖
+allthemodium = "7468993"
+ato = "7027340"
+geckolib = "7415496"
+uranus = "6979353"
+jupiter = "7592856"
+
+[libraries]
+mod-iceandfire = { group = "curse.maven", name = "iceandfire-ce-1040076", version.ref = "iceandfire-ce" }
+
+# 运行时依赖
+mod-allthemodium = { group = "curse.maven", name = "allthemodium-364466", version.ref = "allthemodium" }
+mod-ato = { group = "curse.maven", name = "ato-405593", version.ref = "ato" }
+mod-geckolib = { group = "curse.maven", name = "geckolib-388172", version.ref = "geckolib" }
+mod-uranus = { group = "curse.maven", name = "uranus-1010827", version.ref = "uranus" }
+mod-jupiter = { group = "curse.maven", name = "jupiter-1072905", version.ref = "jupiter" }

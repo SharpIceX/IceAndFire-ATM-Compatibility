@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "top.sharpice.iafatmcompat.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	},
+	"mixins": ["AmphithereSpawnMixin"]
+}
