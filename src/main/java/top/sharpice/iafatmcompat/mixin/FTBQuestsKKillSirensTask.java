@@ -7,10 +7,8 @@
 package top.sharpice.iafatmcompat.mixin;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.core.HolderLookup;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import dev.ftb.mods.ftbquests.quest.TeamData;
 import net.minecraft.world.entity.LivingEntity;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,46 +23,37 @@ public class FTBQuestsKKillSirensTask {
 	@Shadow
 	private ResourceLocation entityTypeId;
 
-	@Unique
-	private boolean iaf_atm_compat$isSirenPatchNeeded = false;
-
-	/**
-	 * 编辑模式下
-	 */
-	@Inject(method = "readData", at = @At("RETURN"))
-	private void iaf_atm_compat$identifySirenTask(CompoundTag nbt, HolderLookup.Provider provider, CallbackInfo ci) {
-		this.iaf_atm_compat$isSirenPatchNeeded = false;
-
-		// 仅当前任务是击杀 `ars_elemental:siren_entity` 实体
-		if (this.entityTypeId != null && "ars_elemental:siren_entity".equals(this.entityTypeId.toString())) {
-			String nbtString = nbt.toString().toLowerCase();
-
-			// 如果 NBT 使用了有关冰火传说的数据（例如图标），则表示当前任务设置出错
-			if (nbtString.contains("iceandfire:siren")) {
-				this.iaf_atm_compat$isSirenPatchNeeded = true;
-			}
-		}
-	}
-
-	/**
-	 * 击杀判定
-	 */
 	@Inject(method = "kill", at = @At("HEAD"), cancellable = true)
 	private void iaf_atm_compat$redirectSirenKill(TeamData teamData, LivingEntity e, CallbackInfo ci) {
-		if (this.iaf_atm_compat$isSirenPatchNeeded) {
-			ResourceLocation killedId = BuiltInRegistries.ENTITY_TYPE.getKey(e.getType());
+		// 确保当前做的任务是击杀`ars_elemental:siren_entity`的任务
+		if (this.entityTypeId != null && "ars_elemental:siren_entity".equals(this.entityTypeId.toString())) {
 
-			// 杀掉的是不是 `iceandfire：siren`
-			if (killedId != null && "iceandfire".equals(killedId.getNamespace())
-					&& "siren".equals(killedId.getPath())) {
-				KillTask self = (KillTask) (Object) this;
+			KillTask self = (KillTask) (Object) this;
+			dev.ftb.mods.ftbquests.quest.Quest parentQuest = self.getQuest();
 
-				// 手动推送进度
-				if (!teamData.isCompleted(self)) {
-					teamData.addProgress(self, 1L);
+			if (parentQuest != null) {
+				// 获取 Quest 原始 NBT
+				CompoundTag nbt = new CompoundTag();
+				parentQuest.writeData(nbt, e.level().registryAccess());
+
+				// 检查任务图标是否包含冰火传说的塞壬特征
+				if (nbt.contains("icon")) {
+					String iconString = nbt.get("icon").getAsString().toLowerCase();
+
+					if (iconString.contains("iceandfire:siren")) {
+						ResourceLocation killedId = BuiltInRegistries.ENTITY_TYPE.getKey(e.getType());
+
+						// 如果杀掉的是冰火传说的塞壬，则强制推送进度
+						if (killedId != null && "iceandfire".equals(killedId.getNamespace())
+								&& "siren".equals(killedId.getPath())) {
+
+							if (!teamData.isCompleted(self)) {
+								teamData.addProgress(self, 1L);
+							}
+							ci.cancel();
+						}
+					}
 				}
-
-				ci.cancel();
 			}
 		}
 	}

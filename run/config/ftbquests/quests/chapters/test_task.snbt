@@ -7,17 +7,17 @@
 	order_index: 0
 	quest_links: [ ]
 	quests: [{
+		icon: {
+			components: {
+				"!ftbquests:icon": { }
+				"ftbquests:entity_face": "iceandfire:siren"
+			}
+			id: "ftbquests:custom_icon"
+		}
 		id: "570C58A86933C07F"
 		tasks: [{
 			entity: "ars_elemental:siren_entity"
-			icon: {
-				components: {
-					"!ftbquests:icon": { }
-					"ftbquests:entity_face": "iceandfire:siren"
-				}
-				id: "ftbquests:custom_icon"
-			}
-			id: "47A8CC68CC492CA0"
+			id: "4A5A8491B4195EF1"
 			type: "kill"
 			value: 1L
 		}]
