@@ -8,7 +8,7 @@ SPDX-FileCopyrightText = "2015-2021 the original authors."
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = [".editorconfig", ".gitignore", ".vscode/**", "README.md", "eclipse-formatter.xml", "gradle/libs.versions.toml"]
+path = [".editorconfig", ".gitignore", ".vscode/**","run/**", "README.md", "eclipse-formatter.xml", "gradle/libs.versions.toml"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 锐冰(SharpIce) <VupRbl@163.com>"
 SPDX-License-Identifier = "0BSD"

@@ -8,5 +8,5 @@
 	"overwrites": {
 		"requireAnnotations": true
 	},
-	"mixins": ["AmphithereSpawnMixin"]
+	"mixins": ["AmphithereSpawnMixin", "FTBQuestsKKillSirensTask"]
 }

@@ -85,13 +85,20 @@ val localRuntime: Configuration by configurations.creating
 configurations.runtimeClasspath.get().extendsFrom(localRuntime)
 
 dependencies {
-	implementation(libs.mod.uranus)
-    implementation(libs.mod.iceandfire) // 需要 uranus、jupiter
-
-    runtimeOnly(libs.mod.jupiter)
-    runtimeOnly(libs.mod.allthemodium) // 需要 ato、geckolib
-    runtimeOnly(libs.mod.ato)
+	// Allthemodium
+    runtimeOnly(libs.mod.allthemodium)
+	runtimeOnly(libs.mod.ato)
     runtimeOnly(libs.mod.geckolib)
+
+	// Ice And Fire Community Edition
+    implementation(libs.mod.iceandfire.ce)
+	implementation(libs.mod.uranus)
+    runtimeOnly(libs.mod.jupiter)
+
+	// FTB Quests
+    implementation(libs.mod.ftb.quests)
+	implementation(libs.mod.ftb.libray)
+	runtimeOnly(libs.mod.ftb.teams)
 }
 
 val generateModMetadata = tasks.register<ProcessResources>("generateModMetadata") {

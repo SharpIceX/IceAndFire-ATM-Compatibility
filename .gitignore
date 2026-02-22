@@ -22,8 +22,15 @@ build
 
 # other
 eclipse
-run
+run/*
 runs
 run-data
 
 repo
+
+# ftb quests
+!/run/config/
+/run/config/*
+!/run/config/ftbquests
+/run/config/ftbquests/*
+!/run/config/ftbquests/quests

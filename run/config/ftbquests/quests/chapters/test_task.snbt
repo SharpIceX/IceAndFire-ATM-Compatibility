@@ -1,0 +1,27 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "test_task"
+	group: ""
+	id: "24D834A6566ADC6F"
+	order_index: 0
+	quest_links: [ ]
+	quests: [{
+		id: "570C58A86933C07F"
+		tasks: [{
+			entity: "ars_elemental:siren_entity"
+			icon: {
+				components: {
+					"!ftbquests:icon": { }
+					"ftbquests:entity_face": "iceandfire:siren"
+				}
+				id: "ftbquests:custom_icon"
+			}
+			id: "47A8CC68CC492CA0"
+			type: "kill"
+			value: 1L
+		}]
+		x: -2.0d
+		y: -3.0d
+	}]
+}
