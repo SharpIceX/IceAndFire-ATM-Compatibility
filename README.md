@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD041 -->
 
-本项目采用 GPL-3.0-or-later 和 0BSD 双重许可协议开源，是自由免费软件。
+本项目采用 LGPL-3.0-or-later 和 0BSD 双重许可协议开源，是自由免费软件。
 
 ## 修复了以下内容
 
